@@ -1,9 +1,11 @@
 import React from 'react';
 
-function App() {
+import { AuthContextProvider } from './contexts/AuthContext';
+
+export function App() {
   return (
-    <div></div>
+    <AuthContextProvider>
+      <></>
+    </AuthContextProvider>
   );
 }
-
-export default App;
