@@ -20,7 +20,7 @@ interface AuthContextProviderProps {
 
 export function AuthContextProvider({ children }: AuthContextProviderProps) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
   const [user, setUser] = useState<UserDTO>({} as UserDTO);
 
   async function loadStoredData() {
@@ -29,10 +29,10 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
     if (storedToken) {
       api.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`;
 
-      const { data: user } = await api.get('/profile');
+      const { data } = await api.get('/profile');
 
       setIsAuthenticated(true);
-      setUser(user);
+      setUser(data);
     }
 
     setIsLoading(false);

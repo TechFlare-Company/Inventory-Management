@@ -1,4 +1,11 @@
 import React from 'react';
 import { RouteObject } from 'react-router-dom';
 
-export const authenticateRoutes: RouteObject[] = [];
+import { Login } from '../pages/Login';
+
+export const authenticateRoutes: RouteObject[] = [
+  {
+    path: '/',
+    element: <Login />,
+  },
+];

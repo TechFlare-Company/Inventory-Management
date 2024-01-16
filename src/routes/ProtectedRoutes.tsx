@@ -3,6 +3,8 @@ import { Navigate, RouteObject } from 'react-router-dom';
 
 import { useAuth } from '../hooks/useAuth';
 import { DefaultLayout } from '../layout/DefaultLayout';
+import { Dashboard } from '../pages/Dashboard';
+import { Stock } from '../pages/Stock';
 
 function ProtectedRoute() {
   const { isAuthenticated } = useAuth();
@@ -12,8 +14,17 @@ function ProtectedRoute() {
 
 export const protectedRoutes: RouteObject[] = [
   {
-    path: '/',
+    path: '/app',
     element: <ProtectedRoute />,
-    children: [],
+    children: [
+      {
+        path: '/app/dashboard',
+        element: <Dashboard />,
+      },
+      {
+        path: '/app/stock',
+        element: <Stock />,
+      },
+    ],
   },
 ];
