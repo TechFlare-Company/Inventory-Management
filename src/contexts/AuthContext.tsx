@@ -1,9 +1,8 @@
 import React from 'react';
 import { ReactNode, createContext, useEffect, useState } from 'react';
 
-import { AuthDTO } from '@/dtos/AuthDTO';
-import { UserDTO } from '@/dtos/UserDTO';
-
+import { AuthDTO } from '../dtos/AuthDTO';
+import { UserDTO } from '../dtos/UserDTO';
 import { api } from '../lib/axios';
 
 interface AuthContextProps {
@@ -40,7 +39,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
   }
 
   async function signIn(authData: AuthDTO) {
-    const { data } = await api.post('/users/createUser', authData);
+    const { data } = await api.post('/users/authenticate', authData);
     const { user, accessToken } = data;
 
     api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
