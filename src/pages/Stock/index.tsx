@@ -1,3 +1,5 @@
+import { StockContainer } from './styles';
+
 export function Stock() {
-  return <div></div>;
+  return <StockContainer></StockContainer>;
 }

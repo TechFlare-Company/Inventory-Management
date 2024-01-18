@@ -1,30 +1,18 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
+import { Header } from '../../components/Header';
+import { Sidebar } from '../../components/Sidebar';
 import { DefaultLayoutContainer } from './styles';
 
 export function DefaultLayout() {
   return (
     <DefaultLayoutContainer>
-      <header>header</header>
-      <aside>
-        <div>
-          <img src="" alt="" />
-        </div>
-        <nav>
-          <div>
-            <Link to="/app/dashboard">
-              <span>Dashboard</span>
-            </Link>
-          </div>
-          <div>
-            <Link to="/app/stock">
-              <span>Estoque</span>
-            </Link>
-          </div>
-        </nav>
-      </aside>
-      <Outlet />
+      <Header />
+      <Sidebar />
+      <div className="container">
+        <Outlet />
+      </div>
     </DefaultLayoutContainer>
   );
 }
