@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
   padding: 1.25rem 2rem;
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
   display: flex;
   align-items: center;
   justify-content: space-between;

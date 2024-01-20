@@ -5,10 +5,12 @@ import styled from 'styled-components';
 export const CardRoot = styled.div`
   border-radius: 0.5rem;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
+  display: flex;
+  flex-direction: column;
 `;
 
 export const CardTop = styled.div`
-  padding: 1rem;
+  padding: 1rem 1rem 0;
   display: flex;
   justify-content: space-between;
 `;
@@ -26,4 +28,7 @@ export const CardButton = styled.button``;
 
 export const CardLink = styled(Link)``;
 
-export const CardContent = styled.div``;
+export const CardContent = styled.div`
+  padding: 1rem;
+  flex-grow: 1;
+`;

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const SidebarContainer = styled.aside`
   padding: 1.5rem 1.5rem 2rem 1.5rem;
   box-shadow: 0 0 5px 1px ${({ theme }) => theme.COLORS.GREY[100]};
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
   display: flex;
   flex-direction: column;
   gap: 2.25rem;

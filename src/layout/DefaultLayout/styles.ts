@@ -23,5 +23,6 @@ export const DefaultLayoutContainer = styled.div`
   .container {
     background-color: ${({ theme }) => theme.COLORS.GREY[50]};
     grid-area: container;
+    overflow: auto;
   }
 `;
