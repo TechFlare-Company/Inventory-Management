@@ -1,3 +1,7 @@
+import { Bar, Line } from 'react-chartjs-2';
+
+import 'chart.js/auto';
+
 import BagBlue from '../../assets/dashboard/bag-blue.png';
 import BarChartOrange from '../../assets/dashboard/bar-chart-orange.png';
 import BarChartPurple from '../../assets/dashboard/bar-chart-purple.png';
@@ -138,11 +142,107 @@ export function Dashboard() {
         <Card.Top>
           <Card.Title>Vendas x Compras</Card.Title>
         </Card.Top>
+        <Card.Content>
+          <Bar
+            style={{ width: '80%', margin: 'auto' }}
+            data={{
+              labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Out'],
+              datasets: [
+                {
+                  label: 'Compras',
+                  data: [54890, 58760, 43000, 35670, 42000, 22500, 56000, 45000, 46000, 32400],
+                  backgroundColor: '#817AF35F',
+                  borderColor: '#817AF3',
+                  borderWidth: 2,
+                  borderRadius: 100,
+                },
+                {
+                  label: 'Vendas',
+                  data: [49000, 48000, 61000, 54000, 55000, 48000, 59000, 38000, 42000, 40000],
+                  backgroundColor: '#57DA655F',
+                  borderColor: '#57DA65',
+                  borderWidth: 2,
+                  borderRadius: 100,
+                },
+              ],
+            }}
+            options={{
+              scales: {
+                x: {
+                  type: 'category',
+                  grid: {
+                    display: false,
+                  },
+                },
+                y: {
+                  beginAtZero: true,
+                  ticks: {
+                    stepSize: 10000,
+                  },
+                },
+              },
+            }}
+          />
+        </Card.Content>
       </Card.Root>
       <Card.Root className="orders">
         <Card.Top>
           <Card.Title>Pedidos</Card.Title>
         </Card.Top>
+        <Card.Content>
+          <div>
+            <Line
+              data={{
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [
+                  {
+                    label: 'Pedidos',
+                    data: [3500, 1800, 2500, 1650, 2100, 4000],
+                    backgroundColor: 'rgba(255, 99, 132, 0.1)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+                    pointRadius: 1,
+                    pointHoverRadius: 7,
+                    fill: true,
+                  },
+                  {
+                    label: 'Entregues',
+                    data: [3100, 1200, 3800, 2000, 3200, 2500],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                    pointRadius: 1,
+                    pointHoverRadius: 7,
+                    fill: true,
+                  },
+                ],
+              }}
+              options={{
+                scales: {
+                  x: {
+                    type: 'category',
+                    grid: {
+                      display: false,
+                    },
+                  },
+                  y: {
+                    beginAtZero: true,
+                    ticks: {
+                      stepSize: 1000,
+                    },
+                  },
+                },
+                elements: {
+                  line: {
+                    tension: 0.4,
+                  },
+                },
+              }}
+            />
+          </div>
+        </Card.Content>
       </Card.Root>
       <Card.Root className="best-products">
         <Card.Top>
